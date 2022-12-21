@@ -49,6 +49,7 @@ For 2020-06-01, Sold items were (Pencil, Bible), we sort them lexicographically 
 For 2020-06-02, the Sold item is (Mask), we just return it.
 
 Solution:
+#GROUP CONCAT is the function in mySQL which returns the row values in the comma separated fashion
 SELECT SELL_DATE, COUNT(DISTINCT PRODUCT) AS NUM_SOLD, GROUP_CONCAT(DISTINCT PRODUCT) AS PRODUCTS
 FROM ACTIVITIES
 GROUP BY SELL_DATE
