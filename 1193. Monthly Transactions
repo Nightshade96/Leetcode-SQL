@@ -1,0 +1,11 @@
+
+SELECT TO_CHAR(TO_DATE(trans_date, 'YYYY-MM-DD'), 'YYYY-MM') AS MONTH, COUNTRY,
+COUNT(*) AS TRANS_COUNT,
+SUM(DECODE(state, 'approved', 1, 0)) AS approved_count,
+SUM(amount) AS trans_total_amount,
+SUM(DECODE(state, 'approved', amount, 0)) AS approved_total_amount
+FROM TRANSACTIONS
+GROUP BY TO_CHAR(TO_DATE(trans_date, 'YYYY-MM-DD'), 'YYYY-MM'),COUNTRY;
+
+
+
